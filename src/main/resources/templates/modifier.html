@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Customer Info</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+
+<form action="#" th:action="@{/modifier/{id}(id=${customer.id})}" th:object="${customer}" method="post">
+    <p><label for="name">First name</label>
+    <input type="text" th:field="*{firstname}" id="name" placeholder="Name"></p>
+    <span th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}"></span>
+    <p> <label for="email">Last name</label>
+        <input type="text" th:field="*{lastname}" id="email" placeholder="Email"></p>
+    <span th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}"></span>
+
+    <p> <label for="fonc">Fonction</label>
+        <input type="text" th:field="*{fonction}" id="fonc" placeholder="Email"></p>
+    <span th:if="${#fields.hasErrors('fonction')}" th:errors="*{fonction}"></span>
+
+    <input type="submit" value="Update User">
+</form>
+</body>
+</html>
